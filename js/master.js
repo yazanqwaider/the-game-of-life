@@ -24,20 +24,27 @@ window.onload = function() {
             const row = this.getAttribute('data-row');
             const col = this.getAttribute('data-col');
 
-            squares[row][col] = true;
-            this.classList.add('live_cell');
+            squares[row][col] = !squares[row][col];
+            if(squares[row][col])
+                this.classList.add('live_cell');
+            else
+                this.classList.remove('live_cell');
         });
     });
 
 
     const startBtn = document.getElementById('start_btn');
+    const stopBtn = document.getElementById('stop_btn');
     startBtn.addEventListener('click', function() {
         interval = setInterval(nextGeneration, 1000);
+        this.classList.add('active_btn');
+        stopBtn.classList.remove('active_btn');
     });
 
-    const stopBtn = document.getElementById('stop_btn');
     stopBtn.addEventListener('click', function() {
         clearInterval(interval);
+        this.classList.add('active_btn');
+        startBtn.classList.remove('active_btn');
     });
 
     
@@ -76,9 +83,8 @@ window.onload = function() {
                 }
                 
                 const live_neighbors = neighbors.filter((neighbor) => (neighbor === true)).length;
-
                 if(current_cell) {
-                    if(live_neighbors < 2) {
+                    if(![2, 3].includes(live_neighbors)) {
                         copied_squares[row][col] = false;
                         rowElem[row].children[col].classList.remove('live_cell');
                     }

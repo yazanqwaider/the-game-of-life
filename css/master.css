@@ -4,6 +4,38 @@ body {
 
 .title {
     text-align: center;
+    font-style: italic;
+}
+
+.btns_layout {
+    display: flex;
+    justify-content: center;
+}
+
+#start_btn,
+#stop_btn {
+    margin: 2px;
+    color: white;
+    border: 1px solid #707070;
+    padding: 8px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#start_btn:focus,
+#stop_btn:focus {
+    outline: 0;
+}
+
+.active_btn {
+    font-weight: bold;
+    border: 2px solid black !important;
+}
+
+#start_btn {
+    background: #03bf00;
+}
+#stop_btn {
+    background: #bf0000;
 }
 
 .plate {
@@ -42,7 +74,6 @@ body {
     }
 }
 
-
 .squares_row {
     display: flex;
     justify-content: center;
@@ -51,9 +82,9 @@ body {
 }
 
 .square_col {
-    height: 10px;
-    width: 10px;
-    border: 0.1px solid rgb(175, 175, 175);
+    height: 12px;
+    width: 12px;
+    border: 1px solid rgba(175, 175, 175, 0.692);
 }
 
 .live_cell {
