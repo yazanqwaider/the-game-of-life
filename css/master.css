@@ -2,9 +2,25 @@ body {
     background: #fdfdfd;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #f3f3f3;
+}
+::-webkit-scrollbar-thumb {
+    background: #b9b9b9;
+    border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #797979;
+}
+
 .title {
     text-align: center;
     font-style: italic;
+    text-shadow: 1px 1px 1px #bfbfbf;
 }
 
 .btns_layout {
@@ -16,9 +32,10 @@ body {
 #stop_btn {
     margin: 2px;
     color: white;
-    border: 1px solid #707070;
+    border: 1px solid transparent;
     padding: 8px 25px;
     border-radius: 4px;
+    font-size: 14px;
     cursor: pointer;
 }
 #start_btn:focus,
@@ -74,17 +91,19 @@ body {
     }
 }
 
-.squares_row {
+.row {
     display: flex;
     justify-content: center;
     align-items: center;
     width: max-content;
 }
 
-.square_col {
+.cell {
     height: 12px;
     width: 12px;
     border: 1px solid rgba(175, 175, 175, 0.692);
+    border-left-width: 0px;
+    border-top-width: 0px;
 }
 
 .live_cell {
